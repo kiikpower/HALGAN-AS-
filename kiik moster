@@ -1,0 +1,38 @@
+// HALGAN AS - React Web App (Netflix-style)
+
+import React from "react";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
+import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/LoginPage";
+import SignupPage from "./pages/SignupPage";
+import VideoPage from "./pages/VideoPage";
+import Navbar from "./components/Navbar";
+import './App.css';
+
+function App() {
+  return (
+    <Router>
+      <AuthProvider>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/video/:id" element={<VideoPage />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </AuthProvider>
+    </Router>
+  );
+}u
+
+export default App;
+
+// Fiiro gaar ah:
+// - Midabada app-ka: caddaan & madow
+// - Login/signup/email/google/facebook
+// - Users waxay daawan karaan muuqaallo
+// - Waxaa lagu furi karaa Mobile, TV & Computer
+// - Waxaa lagu geli karaa Vercel marka la export gareeyo
+// Haddii aad rabto .zip ama Vercel auto deploy link, ii sheeg
