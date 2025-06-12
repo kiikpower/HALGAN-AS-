@@ -1,0 +1,18 @@
+ import React from "react";
+import { useParams } from "react-router-dom";
+
+const VideoPage = () => {
+  const { id } = useParams();
+
+  return (
+    <div>
+      <h2>Daawashada muuqaalka #{id}</h2>
+      <video width="100%" controls>
+        <source src="https://res.cloudinary.com/demo/video/upload/sample.mp4" type="video/mp4" />
+        Browser-kaagu ma taageero video-ga.
+      </video>
+    </div>
+  );
+};
+
+export default VideoPage;
